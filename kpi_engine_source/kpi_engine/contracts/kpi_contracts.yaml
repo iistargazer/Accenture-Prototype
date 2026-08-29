@@ -1,0 +1,82 @@
+# Lightweight KPI / semantic contract.
+# This is the governed layer: every downstream component (detection, driver
+# analysis, LLM narrative) reads definitions from HERE rather than
+# hardcoding business logic. Adding/changing a KPI means editing this file,
+# not the engine code.
+
+kpis:
+  revenue:
+    display_name: "Revenue"
+    formula: "sum(units * price)"
+    source_tables: ["sales_daily"]
+    native_grain: "daily"
+    analysis_grain: "weekly"
+    unit: "USD"
+    materiality_threshold_pct: 8.0
+    candidate_drivers: ["price", "volume", "mix", "marketing_spend", "seasonality", "stockouts"]
+    owner_role: "VP Sales"
+    access_roles: ["exec", "regional_manager", "sales_analyst"]
+    restricted_dimensions: []
+    sparse_history: false
+    lineage: "sales_daily.units * sales_daily.price, summed to weekly grain"
+
+  units_sold:
+    display_name: "Units sold"
+    formula: "sum(units)"
+    source_tables: ["sales_daily"]
+    native_grain: "daily"
+    analysis_grain: "weekly"
+    unit: "units"
+    materiality_threshold_pct: 10.0
+    candidate_drivers: ["price", "marketing_spend", "stockouts", "seasonality"]
+    owner_role: "Category Manager"
+    access_roles: ["exec", "regional_manager", "sales_analyst"]
+    restricted_dimensions: []
+    sparse_history: false
+    lineage: "sales_daily.units, summed to weekly grain"
+
+  avg_selling_price:
+    display_name: "Average selling price"
+    formula: "sum(units * price) / sum(units)"
+    source_tables: ["sales_daily"]
+    native_grain: "daily"
+    analysis_grain: "weekly"
+    unit: "USD"
+    materiality_threshold_pct: 5.0
+    candidate_drivers: ["promo_flag", "mix"]
+    owner_role: "Pricing team"
+    access_roles: ["exec", "sales_analyst"]
+    restricted_dimensions: ["margin"]
+    sparse_history: false
+    lineage: "sales_daily.units, sales_daily.price, weighted weekly average"
+
+  marketing_efficiency:
+    display_name: "Marketing efficiency (ROAS)"
+    formula: "revenue / marketing_spend"
+    source_tables: ["sales_daily", "marketing_spend_weekly"]
+    native_grain: "mixed (daily revenue, weekly spend)"
+    analysis_grain: "weekly"
+    unit: "ratio"
+    materiality_threshold_pct: 15.0
+    candidate_drivers: ["marketing_spend", "revenue"]
+    owner_role: "Marketing Lead"
+    access_roles: ["exec", "marketing_analyst"]
+    restricted_dimensions: ["channel_cost"]
+    sparse_history: false
+    lineage: "weekly revenue (from sales_daily) divided by marketing_spend_weekly.spend"
+
+  new_launch_revenue:
+    display_name: "Revenue - New product launch"
+    formula: "sum(units * price) where category = 'new_launch'"
+    source_tables: ["sales_daily"]
+    native_grain: "daily"
+    analysis_grain: "weekly"
+    unit: "USD"
+    materiality_threshold_pct: 20.0
+    candidate_drivers: ["marketing_spend", "seasonality", "distribution"]
+    owner_role: "Category Manager"
+    access_roles: ["exec", "regional_manager", "sales_analyst"]
+    restricted_dimensions: []
+    sparse_history: true
+    min_periods_for_full_confidence: 6
+    lineage: "sales_daily filtered to category='new_launch', summed to weekly grain"
