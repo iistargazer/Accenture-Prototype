@@ -1,9 +1,0 @@
-month,region,category,stockout_flag,stockout_days
-2026-06,East,existing_A,0,0
-2026-06,East,existing_B,0,0
-2026-06,West,existing_A,0,0
-2026-06,West,existing_B,0,0
-2026-07,East,existing_A,0,0
-2026-07,East,existing_B,0,0
-2026-07,West,existing_A,0,0
-2026-07,West,existing_B,1,5
