@@ -7,9 +7,9 @@ import json
 from pathlib import Path
 from engine.orchestrator import run_pipeline
 from engine.feedback import record_feedback
-from llm.mock_provider import MockLLMProvider
+from llm.gemini_provider import GeminiProvider
+llm = GeminiProvider()
 
-llm = MockLLMProvider()
 OUT = Path(__file__).parent / "output"
 OUT.mkdir(exist_ok=True)
 
