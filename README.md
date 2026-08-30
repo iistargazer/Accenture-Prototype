@@ -7,6 +7,8 @@ recommends concrete actions — with explicit confidence scoring, abstention whe
 evidence is weak, role-based data security, a feedback loop, and full cost/latency
 telemetry.
 
+Link to the dashboard
+https://htmlpreview.github.io/?https://github.com/iistargazer/KPI-Intelligence-to-Action-Engine/blob/main/kpi_engine_source/kpi_engine/output/dashboard.html
 ---
 
 ## 1. Implementation approach
