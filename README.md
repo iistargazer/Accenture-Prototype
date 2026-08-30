@@ -1,11 +1,16 @@
 # KPI Intelligence-to-Action Engine
 
-A prototype built for BusinessIntelligence.ai Round 2: detects material KPI movements,
-ranks their drivers using the appropriate analytical method for each (not just an LLM
+A prototype built for BusinessIntelligence.ai for Round 2 of the Accenture Innovation Challenge 2026
+Detects material KPI movements, ranks their drivers using the appropriate analytical method for each (not just an LLM
 guessing), generates persona-specific narratives grounded in traceable evidence, and
 recommends concrete actions — with explicit confidence scoring, abstention when
 evidence is weak, role-based data security, a feedback loop, and full cost/latency
 telemetry.
+
+Made by Team Raijin.
+Rohan Chinta
+Mohammad Saad Ansari
+S Vageesh
 
 Link to the dashboard
 https://htmlpreview.github.io/?https://github.com/iistargazer/KPI-Intelligence-to-Action-Engine/blob/main/kpi_engine_source/kpi_engine/output/dashboard.html
