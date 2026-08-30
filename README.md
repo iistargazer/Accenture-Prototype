@@ -146,7 +146,7 @@ template narratives.
 | 7 | Feedback loop | `engine/feedback.py`; Feedback loop tab |
 | 8 | Cost/latency/security constraints | `engine/telemetry.py` + `engine/security.py`; respective tabs |
 
-## What's deliberately simplified (say this out loud to judges)
+## What's deliberately simplified
 
 - Data is synthetic, engineered to contain known scenarios — real connectors are a
   separate, solvable problem; this prototype is about the reasoning architecture.
@@ -162,7 +162,7 @@ template narratives.
   crutch — it's how we'd want a production version to behave if a provider has an
   outage, and every narrative is labelled with which path actually produced it.
 
-## Possible next steps (not required for this submission)
+## Possible next steps
 
 - A formal causal-inference check (e.g. treating one region as a rough control group)
   to back up the confidence heuristic with something more rigorous.
