@@ -414,7 +414,7 @@ coding is the whole thesis of the project made visible at a glance.
 
 ---
 
-# 9. Design choices worth understanding (and being able to defend to judges)
+# 9. Design choices worth understanding
 
 **Why percentage points of prior-period revenue, not percentage of net change, for
 PVM decomposition?** When price and volume effects partly offset each other, expressing
