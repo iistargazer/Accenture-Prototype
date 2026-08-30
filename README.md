@@ -124,13 +124,6 @@ python build_dashboard.py
 # 5. Open output/dashboard.html directly in a browser
 ```
 
-If you don't have a Gemini key yet: get one free at aistudio.google.com (no card
-needed), check the free-tier model list shown there, and set `MODEL_NAME` in
-`llm/gemini_provider.py` to match exactly if it's changed since this was written.
-Without any key set, swap `GeminiProvider` for `MockLLMProvider` in
-`run_scenarios.py` and the whole pipeline still runs end-to-end on deterministic
-template narratives.
-
 ---
 
 ## Requirement → where it's demonstrated
