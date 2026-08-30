@@ -490,7 +490,6 @@ stretch, with clear labeling of which path actually ran.
 
 # 11. What's deliberately out of scope for this prototype
 
-Worth saying plainly to judges rather than hoping nobody asks:
 
 - **Data is synthetic**, engineered to contain specific known scenarios. Real
   connectors to actual source systems are a separate, solvable engineering problem —
